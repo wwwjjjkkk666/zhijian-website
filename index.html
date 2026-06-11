@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深圳智简未来科技有限公司 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-dark">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-brain text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold text-primary">深圳智简未来科技有限公司</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="text-gray-700 hover:text-primary transition-colors">关于我们</a>
+                <a href="#services" class="text-gray-700 hover:text-primary transition-colors">产品服务</a>
+                <a href="#advantages" class="text-gray-700 hover:text-primary transition-colors">核心优势</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">联系我们</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="bg-gradient-to-r from-primary to-secondary text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 text-shadow">电商AI智能体，驱动业务增长</h2>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mx-auto mb-8 opacity-90">
+                不仅帮助企业降低客服成本、提升效率，更能通过AI洞察商机，精准提升产品销量
+            </p>
+            <a href="#services" class="inline-block bg-white text-primary font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                了解解决方案
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">关于我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://picsum.photos/id/180/600/400" alt="深圳智简未来科技有限公司办公环境" class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">深圳智简未来科技有限公司</h3>
+                    <p class="text-gray-600 mb-4">
+                        深圳智简未来科技有限公司是一家专注于人工智能在电商领域应用的高科技企业，我们致力于研发先进的电商AI智能体，为各类电商平台和商家提供智能化解决方案。
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        我们的核心团队由人工智能、自然语言处理和电商领域的资深专家组成，不仅能为客户打造高效、智能、低成本的客服系统，更能通过AI技术深度挖掘市场商机，助力客户提升产品销量。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>AI技术领先</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>电商领域专注</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>降本增效显著</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>商机洞察精准</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品服务 -->
+    <section id="services" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">产品与服务</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我们的电商AI智能体解决方案，覆盖客服全流程并延伸至销售增长领域，全方位赋能电商企业
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-comments text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">智能客服系统</h3>
+                    <p class="text-gray-600">
+                        7x24小时在线响应客户咨询，自动解答常见问题，大幅降低人工成本，提升响应效率
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-shopping-cart text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">购物助手AI</h3>
+                    <p class="text-gray-600">
+                        为客户提供个性化购物建议，智能推荐合适产品，提升转化率和客户满意度
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-exchange text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">智能售后处理</h3>
+                    <p class="text-gray-600">
+                        自动化处理退换货、投诉等售后问题，提高处理效率，优化客户体验
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-lightbulb-o text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">商机洞察系统</h3>
+                    <p class="text-gray-600">
+                        通过AI分析市场趋势和客户行为，精准识别潜在商机，提前布局市场
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-line-chart text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">销售增长分析</h3>
+                    <p class="text-gray-600">
+                        智能分析销售数据，找出增长瓶颈，提供针对性优化建议，有效提升销量
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-users text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">客户画像分析</h3>
+                    <p class="text-gray-600">
+                        构建精准客户画像，深入了解目标群体需求，实现精准营销和产品优化
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心优势 -->
+    <section id="advantages" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">核心优势</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我们的AI解决方案不仅能降低成本，更能创造新的增长机会
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://picsum.photos/id/160/600/400" alt="AI驱动的电商增长分析" class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">AI驱动的业务增长闭环</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-primary font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">全渠道数据整合</h4>
+                                <p class="text-gray-600">
+                                    整合电商平台、社交媒体、客服对话等多渠道数据，构建完整数据视图
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-primary font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">智能商机挖掘</h4>
+                                <p class="text-gray-600">
+                                    通过AI算法识别潜在销售机会、市场趋势和客户需求变化
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-primary font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">行动建议生成</h4>
+                                <p class="text-gray-600">
+                                    基于洞察自动生成可执行的销售和营销建议，指导业务优化
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-primary font-bold">4</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">效果跟踪优化</h4>
+                                <p class="text-gray-600">
+                                    持续跟踪策略执行效果，AI自动优化模型，形成增长闭环
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    欢迎与我们联系，了解AI智能体如何为您的电商业务带来增长
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">扫码添加企业微信</h3>
+                    <p class="text-gray-600 mb-6">
+                        添加我们的企业微信，获取专业的AI解决方案咨询和定制化服务
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-3"></i>
+                            <span class="text-gray-700">地址：深圳市南山区科技园</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-lg inline-block">
+                        <!-- 企业微信二维码图片 -->
+                        <div class="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
+                            <img src="about_work_weixin.png" 
+                                 alt="企业微信二维码" 
+                                 class="w-full h-full object-contain rounded-lg">
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            扫码添加企业微信<br>
+                            获取专业AI解决方案
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-brain text-primary text-2xl"></i>
+                        <h3 class="text-xl font-bold">深圳智简未来科技有限公司</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        用AI重塑电商客服，洞察商机，驱动增长，助力企业创造更大价值
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">首页</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">关于我们</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">产品服务</a></li>
+                        <li><a href="#advantages" class="text-gray-400 hover:text-primary transition-colors">核心优势</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">核心业务</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">智能客服系统</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">商机洞察系统</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">智能售后处理</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">销售增长分析</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <!-- ICP备案信息 -->
+                <p class="text-gray-400 mb-2">
+                    © 2023 深圳智简未来科技有限公司 版权所有
+                </p>
+                <p class="text-gray-500 text-sm">
+                    <a href="https://beian.miit.gov.cn/" target="_blank" class="hover:text-primary transition-colors" id="icp-number">
+                        粤ICP备2025413128号-1
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 根据URL动态设置ICP备案号
+        function setIcpNumber() {
+            const currentUrl = window.location.href;
+            const icpElement = document.getElementById('icp-number');
+            
+            if (currentUrl.includes('zhijianai.cn')) {
+                icpElement.textContent = '粤ICP备2025413128号-1';
+            } else if (currentUrl.includes('zhiyan.chat')) {
+                icpElement.textContent = '粤ICP备2025413128号-2';
+            } else if (currentUrl.includes('zhijianai.cc')) {
+                icpElement.textContent = '粤ICP备2025413128号-3';
+            } else if (currentUrl.includes('aigrowth8.com')) {
+                icpElement.textContent = '粤ICP备2025413128号-4';
+            } else if (currentUrl.includes('aigrowth8.cn')) {
+                icpElement.textContent = '粤ICP备2025413128号-5';
+            } else if (currentUrl.includes('tydbuddy.com')) {
+                icpElement.textContent = '粤ICP备2025413128号-6';
+            } else if (currentUrl.includes('tydclaw.com')) {
+                icpElement.textContent = '粤ICP备2025413128号-7';
+            } else if (currentUrl.includes('tydclaw.cn')) {
+                icpElement.textContent = '粤ICP备2025413128号-8';
+            }
+            
+        }
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', setIcpNumber);
+    </script>
+</body>
+</html>
+    
