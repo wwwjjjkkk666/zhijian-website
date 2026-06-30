@@ -3,391 +3,1292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>深圳智简未来科技有限公司 - 首页</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#165DFF',
-                        secondary: '#36CFC9',
-                        dark: '#1D2129',
-                        light: '#F2F3F5'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
+    <link rel="icon" href="assets/images/logo-zhijian.ico" type="image/x-icon">
+    <title>智简未来 - 电商AI智能体，驱动业务增长 | 深圳智简未来科技有限公司</title>
+    <meta name="description" content="深圳智简未来科技有限公司，专注电商AI领域，提供智言AI客服、Smart Growth智能增长系统、TydBuddy电商助理等全链路AI解决方案，助力电商企业降本增效、持续增长。">
+    <meta name="keywords" content="电商AI,智能客服,智能增长系统,电商助理,竞品分析,爆品挖掘,工单管理,深圳智简未来,智简AI">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1D4ED8;
+            --primary-light: #3B82F6;
+            --primary-dark: #1E3A8A;
+            --accent: #2563EB;
+            --accent-light: #93C5FD;
+            --bg-dark: #1E3A8A;
+            --bg-section: #EFF6FF;
+            --bg-light: #ffffff;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-light: #F1F5F9;
+            --gradient-hero: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--accent) 70%, var(--primary-light) 100%);
+            --gradient-card: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gradient-btn: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            --shadow-card: 
+                0 2px 4px rgba(37, 99, 235, 0.02),
+                0 8px 16px rgba(37, 99, 235, 0.04),
+                0 16px 32px rgba(37, 99, 235, 0.04);
+            --shadow-hover: 
+                0 4px 6px rgba(37, 99, 235, 0.04),
+                0 16px 24px rgba(37, 99, 235, 0.08),
+                0 24px 48px rgba(37, 99, 235, 0.12);
+            --radius: 20px;
+            --header-height: 68px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Inter, "Noto Sans SC", system-ui, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+        }
+        .nav.scrolled {
+            background: var(--bg-light);
+            box-shadow: 0 1px 12px rgba(0,0,0,0.08);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 32px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            display: flex; align-items: center;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a {
+            color: var(--text-primary); text-decoration: none;
+            font-size: 15px; font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta {
+            padding: 8px 24px; border-radius: 8px;
+            background: var(--gradient-btn);
+            color: #fff; font-size: 14px; font-weight: 600;
+            text-decoration: none; border: none; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+        }
+
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mobile-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text-primary); margin: 5px 0; border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 40%, #3B82F6 70%, #60A5FA 100%);
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            padding: 140px 32px 80px;
+            scroll-margin-top: var(--header-height);
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: -30%; right: -15%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute; bottom: -20%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(96,165,250,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 880px; width: 100%; margin: 0 auto;
+            text-align: center;
+            position: relative; z-index: 2;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 18px; border-radius: 100px;
+            font-size: 13px; color: #fff;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+        .hero-badge svg {
+            width: 16px; height: 16px; stroke: #fff; opacity: 1;
+        }
+        .hero-brand {
+            display: block;
+            font-size: 64px; font-weight: 800;
+            color: #fff;
+            line-height: 1.1; margin-bottom: 12px;
+            letter-spacing: -0.03em;
+        }
+        .hero h1 {
+            font-size: 38px; font-weight: 700; color: #fff;
+            line-height: 1.3; margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+        .hero-desc {
+            font-size: 17px; color: rgba(255,255,255,0.9);
+            line-height: 1.8; margin-bottom: 36px;
+            max-width: 620px; margin-left: auto; margin-right: auto;
+        }
+        .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            padding: 14px 36px; border-radius: 12px;
+            background: var(--bg-light);
+            color: #1E3A8A; font-size: 16px; font-weight: 600;
+            text-decoration: none; border: none; cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .btn-secondary {
+            padding: 14px 36px; border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff; font-size: 16px; font-weight: 500;
+            text-decoration: none; cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Hero Value Cards */
+        .hero-value-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 56px;
+            text-align: left;
+        }
+        .hero-value-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 14px;
+            padding: 24px 20px;
+            transition: all 0.3s;
+        }
+        .hero-value-card:hover {
+            background: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        .hero-value-icon {
+            width: 36px; height: 36px; border-radius: 8px;
+            background: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 14px;
+        }
+        .hero-value-icon svg {
+            width: 18px; height: 18px; stroke: #fff;
+            fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .hero-value-card h3 {
+            font-size: 16px; font-weight: 700;
+            color: #fff; margin-bottom: 8px;
+        }
+        .hero-value-card p {
+            font-size: 13px; color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .section {
+            padding: 48px 32px 80px 32px;
+            scroll-margin-top: var(--header-height);
+        }
+        .section-inner {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-tag {
+            display: inline-block;
+            padding: 4px 14px; border-radius: 100px;
+            background: rgba(37,99,235,0.08);
+            color: var(--primary); font-size: 13px; font-weight: 600;
+            margin-bottom: 16px; letter-spacing: 0.05em;
+        }
+        .section-title {
+            font-size: 40px; font-weight: 800;
+            color: var(--text-primary); line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 17px; color: var(--text-secondary);
+            max-width: 700px; margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products { background: var(--bg-section); }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .product-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--gradient-card);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        .product-card:hover::before { opacity: 1; }
+        .product-icon {
+            width: 56px; height: 56px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 24px;
+        }
+        .product-icon-1 { background: linear-gradient(135deg, #EEF2FF, #E0E7FF); }
+        .product-icon-2 { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+        .product-icon-3 { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); }
+        .product-name {
+            font-size: 22px; font-weight: 700;
+            margin-bottom: 8px; color: var(--text-primary);
+        }
+        .product-tagline {
+            font-size: 14px; color: var(--primary);
+            font-weight: 500; margin-bottom: 16px;
+        }
+        .product-desc {
+            font-size: 15px; color: var(--text-secondary);
+            line-height: 1.7; margin-bottom: 24px;
+            flex: 1;
+        }
+        .product-features {
+            list-style: none; margin-bottom: 28px;
+        }
+        .product-features li {
+            font-size: 14px; color: var(--text-secondary);
+            padding: 6px 0; display: flex; align-items: center; gap: 10px;
+        }
+        .product-features li::before {
+            content: '';
+            width: 18px; height: 18px; border-radius: 50%;
+            background: rgba(37,99,235,0.08);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .product-illustration {
+            flex: 1;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+            min-height: 180px;
+        }
+        .product-illustration img {
+            max-width: 100%; max-height: 200px;
+            object-fit: contain;
+        }
+        .product-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--primary); font-size: 14px; font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+        .product-link:hover { gap: 10px; }
+
+        /* ===== SOLUTIONS ===== */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .solution-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 36px;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s;
+            display: flex; gap: 20px;
+        }
+        .solution-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+        }
+        .solution-num {
+            font-size: 40px; font-weight: 800;
+            background: var(--gradient-card);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1; flex-shrink: 0;
+        }
+        .solution-title {
+            font-size: 18px; font-weight: 700;
+            margin-bottom: 8px; color: var(--text-primary);
+        }
+        .solution-desc {
+            font-size: 14px; color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== ADVANTAGES ===== */
+        .advantages {
+            background: var(--gradient-hero);
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .advantages .section-inner {
+            width: 100%;
+        }
+        .advantages .section-title { color: #fff; }
+        .advantages .section-subtitle { color: rgba(255,255,255,0.7); }
+        .advantages .section-tag {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .adv-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .adv-card:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-4px);
+        }
+        .adv-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            background: rgba(255,255,255,0.12);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin: 0 auto 20px;
+        }
+        .adv-title {
+            font-size: 17px; font-weight: 700; color: #fff;
+            margin-bottom: 10px;
+        }
+        .adv-desc {
+            font-size: 13px; color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        /* ===== ABOUT ===== */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px; align-items: center;
+        }
+        .about-content {}
+        .about-text {
+            font-size: 15px; color: var(--text-secondary);
+            line-height: 1.8; margin-bottom: 20px;
+        }
+        .about-text.lead {
+            font-size: 17px;
+            color: var(--text-primary);
+            font-weight: 600;
+            border-left: 4px solid var(--primary);
+            padding-left: 18px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        .about-highlights {
+            display: grid; grid-template-columns: 1fr 1fr;
+            margin-top: 36px;
+        }
+        .about-highlight {
+            display: flex; align-items: flex-start; gap: 20px;
+            padding: 24px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        /* Grid dividers for 2x2 */
+        .about-highlight:nth-child(1) {
+            border-right: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .about-highlight:nth-child(2) {
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .about-highlight:nth-child(3) {
+            border-right: 1px solid #E2E8F0;
+        }
+        .about-highlight:hover {
+            background: #F8FAFC;
+        }
+        .about-highlight-icon {
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            color: #94A3B8; flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .about-icon-svg {
+            width: 24px; height: 24px;
+        }
+        .about-highlight:hover .about-highlight-icon {
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+        .about-highlight-title {
+            font-size: 15px; font-weight: 700;
+            color: var(--text-primary); margin-bottom: 6px;
+        }
+        .about-highlight-desc {
+            font-size: 13px; color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .about-visual {
+            position: relative;
+            width: 100%;
+        }
+        .about-image-placeholder {
+            border-radius: var(--radius);
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 1.4;
+            box-shadow: 0 4px 24px rgba(37, 99, 235, 0.06);
+        }
+        .about-image-placeholder img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: var(--bg-dark);
+            padding: 80px 32px;
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .cta-inner {
+            position: relative; z-index: 2;
+            max-width: 640px; margin: 0 auto;
+        }
+        .cta-title {
+            font-size: 36px; font-weight: 800; color: #fff;
+            margin-bottom: 16px;
+        }
+        .cta-desc {
+            font-size: 17px; color: rgba(255,255,255,0.8);
+            margin-bottom: 36px; line-height: 1.7;
+        }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: var(--bg-light);
+            padding: 100px 32px 140px 32px;
+        }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .contact-text {}
+        .contact-text .section-tag { margin-bottom: 16px; }
+        .contact-text h2 {
+            font-size: 36px; font-weight: 800;
+            color: var(--text-primary); line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        .contact-text p {
+            font-size: 16px; color: var(--text-secondary);
+            line-height: 1.8; margin-bottom: 32px;
+        }
+        .contact-check-list {
+            list-style: none; margin-bottom: 36px;
+        }
+        .contact-check-list li {
+            font-size: 15px; color: var(--text-primary);
+            line-height: 1.8; padding: 8px 0;
+            display: flex; align-items: flex-start; gap: 12px;
+        }
+        .contact-check-list li::before {
+            content: '';
+            width: 22px; height: 22px; border-radius: 50%;
+            background: rgba(37,99,235,0.1);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 3px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 11px;
+        }
+        .contact-check-list li strong {
+            color: var(--primary); font-weight: 700;
+        }
+        .contact-address {
+            font-size: 14px; color: var(--text-secondary);
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px;
+            background: #F8FAFC;
+            border-radius: 100px;
+            border: 1px solid #F1F5F9;
+        }
+        .contact-address svg {
+            width: 16px; height: 16px; stroke: var(--primary);
+            flex-shrink: 0;
+        }
+        .contact-qr-right {
+            display: flex; justify-content: center;
+        }
+        .contact-qr-card {
+            background: linear-gradient(to bottom, #ffffff, #F8FAFC);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1px solid rgba(37,99,235,0.08);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            max-width: 340px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .contact-qr-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-hover);
+        }
+        .contact-qr-label {
+            font-size: 16px; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .contact-qr-box {
+            width: 200px; height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            padding: 8px;
+        }
+        .contact-qr-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .contact-qr-hint {
+            font-size: 13px; color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #000;
+            padding: 60px 32px 32px;
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .footer-brand-name {
+            font-size: 20px; font-weight: 700; color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-brand-desc {
+            font-size: 14px; color: rgba(255,255,255,0.6);
+            line-height: 1.7; max-width: 300px;
+        }
+        .footer-col-title {
+            font-size: 14px; font-weight: 600; color: #fff;
+            margin-bottom: 16px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            font-size: 13px; color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.95); }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 24px;
+        }
+        .footer-copy {
+            font-size: 12px; color: rgba(255,255,255,0.5);
+        }
+        .footer-copy a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+        }
+        .footer-copy a:hover { color: rgba(255,255,255,0.85); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-brand { font-size: 48px; }
+            .hero h1 { font-size: 30px; }
+            .hero-value-cards { grid-template-columns: 1fr; max-width: 400px; margin: 56px auto 0; }
+            .products-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .solutions-grid { grid-template-columns: 1fr; }
+            .adv-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-visual { order: -1; margin-bottom: 28px; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 100px 20px 60px; min-height: auto; }
+            .hero-brand { font-size: 40px; }
+            .hero h1 { font-size: 26px; }
+            .hero-desc { font-size: 15px; }
+            .section { padding: 32px 20px 48px 20px; }
+            .contact { padding: 60px 20px 80px 20px; }
+            .section-header { margin-bottom: 32px; }
+            .section-title { font-size: 28px; }
+            .adv-grid { grid-template-columns: 1fr; }
+            .contact-layout { grid-template-columns: 1fr; text-align: center; }
+            .contact-qr-right { justify-content: center; }
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .about-highlights { grid-template-columns: 1fr; }
+            .about-highlight {
+                border-right: none !important;
+                border-bottom: 1px solid #E2E8F0 !important;
+                padding: 20px 0;
+            }
+            .about-highlight:last-child {
+                border-bottom: none !important;
+            }
+            .about-highlight:hover {
+                background: transparent;
             }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-nav {
+            display: flex;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30, 58, 138, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+            transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        .mobile-nav.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .mobile-nav a {
+            color: #fff; text-decoration: none;
+            font-size: 20px; font-weight: 600;
+        }
+        .mobile-nav-close {
+            position: absolute; top: 20px; right: 24px;
+            background: none; border: none; color: #fff;
+            font-size: 28px; cursor: pointer;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1; transform: translateY(0);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px; right: 32px;
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            background: var(--gradient-btn);
+            color: #fff; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+            opacity: 0; visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 900;
+        }
+        .back-to-top.visible {
+            opacity: 1; visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(37,99,235,0.45);
+        }
+        .back-to-top svg {
+            width: 22px; height: 22px;
+        }
+
     </style>
 </head>
-<body class="bg-gray-50 text-dark">
-    <!-- 导航栏 -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa fa-brain text-primary text-2xl"></i>
-                <h1 class="text-xl font-bold text-primary">深圳智简未来科技有限公司</h1>
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
-                <a href="#about" class="text-gray-700 hover:text-primary transition-colors">关于我们</a>
-                <a href="#services" class="text-gray-700 hover:text-primary transition-colors">产品服务</a>
-                <a href="#advantages" class="text-gray-700 hover:text-primary transition-colors">核心优势</a>
-                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">联系我们</a>
-            </nav>
-            <button class="md:hidden text-gray-700">
-                <i class="fa fa-bars text-xl"></i>
-            </button>
-        </div>
-    </header>
+<body>
 
-    <!-- 英雄区域 -->
-    <section id="home" class="bg-gradient-to-r from-primary to-secondary text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 text-shadow">电商AI智能体，驱动业务增长</h2>
-            <p class="text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mx-auto mb-8 opacity-90">
-                不仅帮助企业降低客服成本、提升效率，更能通过AI洞察商机，精准提升产品销量
-            </p>
-            <a href="#services" class="inline-block bg-white text-primary font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-                了解解决方案
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="#top" class="nav-logo">
+            <img src="assets/images/logo-zhijian-full.png" alt="深圳智简未来科技有限公司">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#top">首页</a></li>
+            <li><a href="#products">产品服务</a></li>
+            <li><a href="#solutions">解决方案</a></li>
+            <li><a href="#advantages">核心优势</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">免费咨询</a>
+        <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="this.parentElement.classList.remove('active')">&times;</button>
+    <a href="#top" onclick="this.parentElement.classList.remove('active')">首页</a>
+    <a href="#products" onclick="this.parentElement.classList.remove('active')">产品服务</a>
+    <a href="#solutions" onclick="this.parentElement.classList.remove('active')">解决方案</a>
+    <a href="#advantages" onclick="this.parentElement.classList.remove('active')">核心优势</a>
+    <a href="#about" onclick="this.parentElement.classList.remove('active')">关于我们</a>
+    <a href="#contact" onclick="this.parentElement.classList.remove('active')">联系我们</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v3M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3Zm2 5h.01M15 13h.01M9 16h6M4 13H2m20 0h-2"/></svg>
+            专为电商打造的 AI 产品矩阵
+        </div>
+        <span class="hero-brand">智简未来</span>
+        <h1>电商AI智能体，驱动业务持续增长</h1>
+        <p class="hero-desc">
+            以AI技术深度赋能电商全场景。从智能客服到运营管理，从商机洞察到竞品分析，一站式AI产品矩阵帮助电商企业实现降本增效与规模化增长。
+        </p>
+        <div class="hero-actions">
+            <a href="#products" class="btn-primary">
+                探索产品
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary">
+                扫码咨询
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/></svg>
             </a>
         </div>
-    </section>
+        <div class="hero-value-cards">
+            <article class="hero-value-card">
+                <span class="hero-value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                </span>
+                <h3>智言AI客服</h3>
+                <p>基于销冠数据训练，全自动接待，AI捕捉商机主动销售</p>
+            </article>
+            <article class="hero-value-card">
+                <span class="hero-value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 19h16M4 19V5M8 16v-5M12 16V8M16 16V6M20 16V10"/></svg>
+                </span>
+                <h3>Smart Growth 智能增长</h3>
+                <p>工单管理、数据对接、财务结算、全局风控，运营全流程智能化</p>
+            </article>
+            <article class="hero-value-card">
+                <span class="hero-value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 4c4.4 0 8 1.2 8 2.8s-3.6 2.8-8 2.8-8-1.2-8-2.8S7.6 4 12 4Z"/><path d="M4 6.8v5.1c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V6.8"/><path d="M4 12v5.2c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V12"/></svg>
+                </span>
+                <h3>TydBuddy 电商助理</h3>
+                <p>竞品分析、爆品挖掘、趋势洞察，AI生成增长策略</p>
+            </article>
+        </div>
+    </div>
+</section>
 
-    <!-- 关于我们 -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">关于我们</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://picsum.photos/id/180/600/400" alt="深圳智简未来科技有限公司办公环境" class="rounded-lg shadow-lg w-full h-auto">
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-tag">产品矩阵</span>
+            <h2 class="section-title">三大AI产品，覆盖电商全链路</h2>
+            <p class="section-subtitle">从智能客服到运营管理，从市场洞察到竞品分析，为电商企业提供完整的AI解决方案</p>
+        </div>
+        <div class="products-grid">
+            <!-- 智言AI -->
+            <div class="product-card fade-up">
+                <div class="product-icon product-icon-1">💬</div>
+                <div class="product-name">智言AI客服</div>
+                <div class="product-tagline">让服务更高效，让增长更智能</div>
+                <p class="product-desc">
+                    基于DeepSeek大模型+数千万真实销冠数据深度训练的AI智能客服，7×24小时全自动接待，既是专业客服更是销售高手。AI自动捕捉商机、主动销售，降低80%成本，提升3倍效率。
+                </p>
+                <div class="product-illustration">
+                    <img src="assets/images/feature_ai_service.webp" alt="智言AI客服 - 全自动AI客服机器人">
                 </div>
+                <a href="https://www.zhiyan.chat/" target="_blank" class="product-link">
+                    访问智言AI
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <!-- Smart Growth -->
+            <div class="product-card fade-up" style="transition-delay: 0.1s;">
+                <div class="product-icon product-icon-2">🚀</div>
+                <div class="product-name">Smart Growth 智能增长系统</div>
+                <div class="product-tagline">降本增效 · 标准化运营 · 自动化管理</div>
+                <p class="product-desc">
+                    面向电商企业的智能运营管理系统，通过工单智能派发、数据无缝对接、素材管理、财务安全结算和全局风控五大核心模块，让电商运营从"混乱低效"变为标准化、自动化、数据化。
+                </p>
+                <div class="product-illustration">
+                    <img src="assets/images/feature_growth_sys.webp" alt="Smart Growth 智能增长系统 - 盈利增长趋势">
+                </div>
+                <a href="https://www.aigrowth8.com/" target="_blank" class="product-link">
+                    访问 Smart Growth
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <!-- TydBuddy -->
+            <div class="product-card fade-up" style="transition-delay: 0.2s;">
+                <div class="product-icon product-icon-3">📊</div>
+                <div class="product-name">TydBuddy 电商助理</div>
+                <div class="product-tagline">发现机会 · 驱动增长</div>
+                <p class="product-desc">
+                    专为电商增长打造的AI助理，接入店铺真实数据，结合市场调研和竞品分析，帮你发现销量下滑、转化偏低、买家顾虑和爆品机会，从分析到执行打通电商全流程。
+                </p>
+                <div class="product-illustration">
+                    <img src="assets/images/feature_ecommerce_assistant.webp" alt="TydBuddy 电商助理 - 数据分析与搜索">
+                </div>
+                <a href="https://tydbuddy.com/" target="_blank" class="product-link">
+                    访问 TydBuddy
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="section" id="solutions">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-tag">解决方案</span>
+            <h2 class="section-title">全场景电商AI解决方案</h2>
+            <p class="section-subtitle">深入电商运营的每一个环节，用AI技术解决核心痛点</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card fade-up">
+                <div class="solution-num">01</div>
                 <div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">深圳智简未来科技有限公司</h3>
-                    <p class="text-gray-600 mb-4">
-                        深圳智简未来科技有限公司是一家专注于人工智能在电商领域应用的高科技企业，我们致力于研发先进的电商AI智能体，为各类电商平台和商家提供智能化解决方案。
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        我们的核心团队由人工智能、自然语言处理和电商领域的资深专家组成，不仅能为客户打造高效、智能、低成本的客服系统，更能通过AI技术深度挖掘市场商机，助力客户提升产品销量。
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="flex items-center">
-                            <i class="fa fa-check-circle text-primary mr-2"></i>
-                            <span>AI技术领先</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa fa-check-circle text-primary mr-2"></i>
-                            <span>电商领域专注</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa fa-check-circle text-primary mr-2"></i>
-                            <span>降本增效显著</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa fa-check-circle text-primary mr-2"></i>
-                            <span>商机洞察精准</span>
-                        </div>
-                    </div>
+                    <div class="solution-title">AI客服降本增效与商机洞察</div>
+                    <p class="solution-desc">智言AI客服基于DeepSeek大模型+数千万销冠数据训练，7×24小时全自动接待，应答准确率98%。不止是客服，更是AI销售助手——实时捕捉商机、主动推荐商品、引导下单，降低80%人工成本，提升3倍服务效率。</p>
+                </div>
+            </div>
+            <div class="solution-card fade-up" style="transition-delay: 0.1s;">
+                <div class="solution-num">02</div>
+                <div>
+                    <div class="solution-title">智能运营降本增效</div>
+                    <p class="solution-desc">Smart Growth智能增长系统通过标准化工单管理、多平台数据无缝对接、自动化结算打款和全局风控体系，实现效率提升50%+、成本降低30%+，让电商运营从混乱低效变为标准化、自动化、数据化。</p>
+                </div>
+            </div>
+            <div class="solution-card fade-up" style="transition-delay: 0.2s;">
+                <div class="solution-num">03</div>
+                <div>
+                    <div class="solution-title">竞品分析与商机洞察</div>
+                    <p class="solution-desc">实时监控竞品动态，聚合多平台市场数据，AI智能分析行业趋势与爆品机会。帮助商家在瞬息万变的市场中抢占先机，做出数据驱动的经营决策。</p>
+                </div>
+            </div>
+            <div class="solution-card fade-up" style="transition-delay: 0.3s;">
+                <div class="solution-num">04</div>
+                <div>
+                    <div class="solution-title">AI驱动的增长闭环</div>
+                    <p class="solution-desc">三大产品协同形成完整的增长闭环：TydBuddy洞察商机 → Smart Growth智能运营 → 智言AI客服转化承接。从洞察到运营再到服务，AI贯穿全流程，助力商家实现规模化增长。</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 产品服务 -->
-    <section id="services" class="py-16 bg-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">产品与服务</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    我们的电商AI智能体解决方案，覆盖客服全流程并延伸至销售增长领域，全方位赋能电商企业
-                </p>
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-tag">核心优势</span>
+            <h2 class="section-title">为什么选择智简未来</h2>
+            <p class="section-subtitle">深耕电商AI领域，以技术创新驱动客户成功</p>
+        </div>
+        <div class="adv-grid">
+            <div class="adv-card fade-up">
+                <div class="adv-icon">🧠</div>
+                <div class="adv-title">前沿AI技术驱动</div>
+                <p class="adv-desc">以大模型为技术底座，结合电商垂直场景深度训练，持续迭代升级，保持技术领先</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-comments text-primary text-xl"></i>
+            <div class="adv-card fade-up" style="transition-delay: 0.1s;">
+                <div class="adv-icon">🔄</div>
+                <div class="adv-title">产品协同闭环</div>
+                <p class="adv-desc">TydBuddy洞察商机 → Smart Growth智能运营 → 智言AI客服转化承接，三大产品形成完整增长闭环</p>
+            </div>
+            <div class="adv-card fade-up" style="transition-delay: 0.2s;">
+                <div class="adv-icon">🔗</div>
+                <div class="adv-title">全平台数据互通</div>
+                <p class="adv-desc">打通淘宝/天猫、京东、拼多多、抖音等主流电商平台，多平台数据统一整合分析</p>
+            </div>
+            <div class="adv-card fade-up" style="transition-delay: 0.3s;">
+                <div class="adv-icon">📊</div>
+                <div class="adv-title">数据驱动决策</div>
+                <p class="adv-desc">从市场趋势到店铺表现，AI深度分析产出可执行洞察，让每一个经营决策都有数据支撑</p>
+            </div>
+            <div class="adv-card fade-up" style="transition-delay: 0.4s;">
+                <div class="adv-icon">⚡</div>
+                <div class="adv-title">极速部署上线</div>
+                <p class="adv-desc">标准化接入流程，无需技术团队，运营人员即可快速完成配置并投入使用</p>
+            </div>
+            <div class="adv-card fade-up" style="transition-delay: 0.5s;">
+                <div class="adv-icon">🛡️</div>
+                <div class="adv-title">安全合规保障</div>
+                <p class="adv-desc">完善的权限管理、数据加密与操作追溯机制，全方位保障店铺数据与业务安全</p>
+            </div>
+            <div class="adv-card fade-up" style="transition-delay: 0.6s;">
+                <div class="adv-icon">🎯</div>
+                <div class="adv-title">效果可量化</div>
+                <p class="adv-desc">降本增效效果清晰可衡量，每个产品模块都有明确的效果指标与数据看板</p>
+            </div>
+            <div class="adv-card fade-up" style="transition-delay: 0.7s;">
+                <div class="adv-icon">🤝</div>
+                <div class="adv-title">专属定制服务</div>
+                <p class="adv-desc">根据企业特点提供个性化方案咨询、系统演示与流程优化建议，陪伴式服务助力落地</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="about-content fade-up">
+                <span class="section-tag">关于我们</span>
+                <h2 class="section-title" style="text-align:left; margin-bottom:24px;">深圳<span class="text-gradient">智简未来</span>科技有限公司</h2>
+                <p class="about-text lead">
+                    深圳智简未来科技有限公司是一家专注于电商AI领域的科技公司，致力于以人工智能技术赋能电商行业全链路场景。公司核心产品矩阵涵盖智能客服、智能运营管理、商机洞察三大方向，帮助电商企业实现降本增效与持续增长。
+                </p>
+                <p class="about-text">
+                    我们坚信AI技术将重塑电商行业的运营方式。通过持续的技术创新和产品打磨，让每一个电商卖家都能用上最前沿的AI能力，在激烈的市场竞争中脱颖而出。
+                </p>
+                <div class="about-highlights">
+                    <div class="about-highlight">
+                        <div class="about-highlight-icon">
+                            <svg class="about-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="16"/><line x1="15" y1="22" x2="15" y2="16"/><line x1="9" y1="16" x2="15" y2="16"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/></svg>
+                        </div>
+                        <div>
+                            <div class="about-highlight-title">总部深圳</div>
+                            <div class="about-highlight-desc">立足科技创新前沿</div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">智能客服系统</h3>
-                    <p class="text-gray-600">
-                        7x24小时在线响应客户咨询，自动解答常见问题，大幅降低人工成本，提升响应效率
-                    </p>
+                    <div class="about-highlight" style="transition-delay: 0.05s;">
+                        <div class="about-highlight-icon">
+                            <svg class="about-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <div>
+                            <div class="about-highlight-title">专注电商AI</div>
+                            <div class="about-highlight-desc">深耕垂直领域场景</div>
+                        </div>
+                    </div>
+                    <div class="about-highlight" style="transition-delay: 0.1s;">
+                        <div class="about-highlight-icon">
+                            <svg class="about-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 15h3"/><path d="M1 9h3"/><path d="M1 15h3"/></svg>
+                        </div>
+                        <div>
+                            <div class="about-highlight-title">技术驱动</div>
+                            <div class="about-highlight-desc">前沿大模型技术</div>
+                        </div>
+                    </div>
+                    <div class="about-highlight" style="transition-delay: 0.15s;">
+                        <div class="about-highlight-icon">
+                            <svg class="about-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.47 14L19 22l-7-3-7 3 3.53-8"/></svg>
+                        </div>
+                        <div>
+                            <div class="about-highlight-title">客户成功</div>
+                            <div class="about-highlight-desc">以效果为导向</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-shopping-cart text-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">购物助手AI</h3>
-                    <p class="text-gray-600">
-                        为客户提供个性化购物建议，智能推荐合适产品，提升转化率和客户满意度
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-exchange text-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">智能售后处理</h3>
-                    <p class="text-gray-600">
-                        自动化处理退换货、投诉等售后问题，提高处理效率，优化客户体验
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-lightbulb-o text-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">商机洞察系统</h3>
-                    <p class="text-gray-600">
-                        通过AI分析市场趋势和客户行为，精准识别潜在商机，提前布局市场
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-line-chart text-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">销售增长分析</h3>
-                    <p class="text-gray-600">
-                        智能分析销售数据，找出增长瓶颈，提供针对性优化建议，有效提升销量
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-users text-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">客户画像分析</h3>
-                    <p class="text-gray-600">
-                        构建精准客户画像，深入了解目标群体需求，实现精准营销和产品优化
-                    </p>
+            </div>
+            <div class="about-visual fade-up" style="transition-delay: 0.2s;">
+                <div class="about-image-placeholder">
+                    <img src="assets/images/about_banner_main.webp" alt="智简未来科技">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 核心优势 -->
-    <section id="advantages" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">核心优势</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    我们的AI解决方案不仅能降低成本，更能创造新的增长机会
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://picsum.photos/id/160/600/400" alt="AI驱动的电商增长分析" class="rounded-lg shadow-lg w-full h-auto">
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-inner fade-up">
+        <h2 class="cta-title">开启您的AI电商增长之旅</h2>
+        <p class="cta-desc">无论您是刚起步的创业者还是寻求突破的成熟卖家，智简未来的AI产品矩阵都能为您量身打造增长方案</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn-primary">
+                立即咨询
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#products" class="btn-secondary">
+                免费试用产品
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+    <div class="section-inner">
+        <div class="contact-layout fade-up">
+            <div class="contact-text">
+                <span class="section-tag">联系我们</span>
+                <h2>添加顾问微信，预约专业的系统演示和个性化解决方案咨询</h2>
+                <p>扫码添加企业微信，了解AI如何为您的电商业务带来增长。</p>
+                <ul class="contact-check-list">
+                    <li>免费产品演示和咨询</li>
+                    <li>个性化解决方案定制</li>
+                    <li>7x24小时技术支持</li>
+                    <li>快速上线，无需复杂配置</li>
+                </ul>
+                <div class="contact-address">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    地址：深圳市南山区科技园
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">AI驱动的业务增长闭环</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex">
-                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <span class="text-primary font-bold">1</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-2">全渠道数据整合</h4>
-                                <p class="text-gray-600">
-                                    整合电商平台、社交媒体、客服对话等多渠道数据，构建完整数据视图
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <span class="text-primary font-bold">2</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-2">智能商机挖掘</h4>
-                                <p class="text-gray-600">
-                                    通过AI算法识别潜在销售机会、市场趋势和客户需求变化
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <span class="text-primary font-bold">3</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-2">行动建议生成</h4>
-                                <p class="text-gray-600">
-                                    基于洞察自动生成可执行的销售和营销建议，指导业务优化
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <span class="text-primary font-bold">4</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-2">效果跟踪优化</h4>
-                                <p class="text-gray-600">
-                                    持续跟踪策略执行效果，AI自动优化模型，形成增长闭环
-                                </p>
-                            </div>
-                        </div>
+            </div>
+            <div class="contact-qr-right">
+                <div class="contact-qr-card">
+                    <div class="contact-qr-label">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        企业微信客服
                     </div>
+                    <div class="contact-qr-box">
+                        <img src="assets/images/about_work_weixin.png" alt="企业微信二维码">
+                    </div>
+                    <div class="contact-qr-hint">扫码添加企业微信<br>获取专业AI解决方案 · 立即开通试用</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 联系我们 -->
-    <section id="contact" class="py-16 bg-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">联系我们</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    欢迎与我们联系，了解AI智能体如何为您的电商业务带来增长
-                </p>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div>
+                <div class="footer-brand-name">智简未来</div>
+                <p class="footer-brand-desc">深圳智简未来科技有限公司，专注电商AI领域，以技术创新驱动商业增长，为电商企业提供全链路AI解决方案。</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">扫码添加企业微信</h3>
-                    <p class="text-gray-600 mb-6">
-                        添加我们的企业微信，获取专业的AI解决方案咨询和定制化服务
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fa fa-map-marker text-primary mr-3"></i>
-                            <span class="text-gray-700">地址：深圳市南山区科技园</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="bg-white p-8 rounded-lg shadow-lg inline-block">
-                        <!-- 企业微信二维码图片 -->
-                        <div class="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
-                            <img src="about_work_weixin.png" 
-                                 alt="企业微信二维码" 
-                                 class="w-full h-full object-contain rounded-lg">
-                        </div>
-                        <p class="text-gray-600 text-sm">
-                            扫码添加企业微信<br>
-                            获取专业AI解决方案
-                        </p>
-                    </div>
-                </div>
+            <div>
+                <div class="footer-col-title">产品服务</div>
+                <ul class="footer-links">
+                    <li><a href="https://www.zhiyan.chat/" target="_blank">智言AI客服</a></li>
+                    <li><a href="https://www.aigrowth8.com/" target="_blank">Smart Growth 智能增长</a></li>
+                    <li><a href="https://tydbuddy.com/" target="_blank">TydBuddy 电商助理</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">关于</div>
+                <ul class="footer-links">
+                    <li><a href="#about">公司介绍</a></li>
+                    <li><a href="#solutions">解决方案</a></li>
+                    <li><a href="#advantages">核心优势</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">支持</div>
+                <ul class="footer-links">
+                    <li><a href="#contact">联系我们</a></li>
+                    <li><a href="#products">产品文档</a></li>
+                    <li><a href="#contact">商务合作</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fa fa-brain text-primary text-2xl"></i>
-                        <h3 class="text-xl font-bold">深圳智简未来科技有限公司</h3>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        用AI重塑电商客服，洞察商机，驱动增长，助力企业创造更大价值
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                            <i class="fa fa-weixin"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                            <i class="fa fa-weibo"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">首页</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">关于我们</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">产品服务</a></li>
-                        <li><a href="#advantages" class="text-gray-400 hover:text-primary transition-colors">核心优势</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">联系我们</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">核心业务</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">智能客服系统</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">商机洞察系统</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">智能售后处理</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">销售增长分析</a></li>
-                    </ul>
-                </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">
+                &copy; <span id="copyright-year"></span> 深圳智简未来科技有限公司 版权所有 &nbsp;|&nbsp;
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow" id="icp-number">粤ICP备2025413128号-1</a>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <!-- ICP备案信息 -->
-                <p class="text-gray-400 mb-2">
-                    © 2023 深圳智简未来科技有限公司 版权所有
-                </p>
-                <p class="text-gray-500 text-sm">
-                    <a href="https://beian.miit.gov.cn/" target="_blank" class="hover:text-primary transition-colors" id="icp-number">
-                        粤ICP备2025413128号-1
-                    </a>
-                </p>
+            <div class="footer-copy">
+                <a href="#">隐私政策</a> &nbsp;·&nbsp; <a href="#">用户协议</a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        // 简单的平滑滚动效果
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    // Show back-to-top button after scrolling past hero (first screen)
+    document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+});
+
+// Scroll animations using IntersectionObserver
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// 拦截所有锚点链接的点击事件，实现平滑滚动并保持地址栏整洁
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        
+        // 阻止默认行为：防止地址栏更新为 #solutions
+        e.preventDefault();
+        
+        // 如果是在移动端，点击导航后关闭抽屉菜单
+        const mobileNav = document.getElementById('mobileNav');
+        if (mobileNav) {
+            mobileNav.classList.remove('active');
+        }
+        
+        // 执行平滑滚动逻辑
+        if (href === '#top' || href === '#') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
-            });
-        });
-
-        // 根据URL动态设置ICP备案号
-        function setIcpNumber() {
-            const currentUrl = window.location.href;
-            const icpElement = document.getElementById('icp-number');
-            
-            if (currentUrl.includes('zhijianai.cn')) {
-                icpElement.textContent = '粤ICP备2025413128号-1';
-            } else if (currentUrl.includes('zhiyan.chat')) {
-                icpElement.textContent = '粤ICP备2025413128号-2';
-            } else if (currentUrl.includes('zhijianai.cc')) {
-                icpElement.textContent = '粤ICP备2025413128号-3';
-            } else if (currentUrl.includes('aigrowth8.com')) {
-                icpElement.textContent = '粤ICP备2025413128号-4';
-            } else if (currentUrl.includes('aigrowth8.cn')) {
-                icpElement.textContent = '粤ICP备2025413128号-5';
-            } else if (currentUrl.includes('tydbuddy.com')) {
-                icpElement.textContent = '粤ICP备2025413128号-6';
-            } else if (currentUrl.includes('tydclaw.com')) {
-                icpElement.textContent = '粤ICP备2025413128号-7';
-            } else if (currentUrl.includes('tydclaw.cn')) {
-                icpElement.textContent = '粤ICP备2025413128号-8';
             }
-            
         }
+    });
+});
 
-        // 页面加载时执行
-        document.addEventListener('DOMContentLoaded', setIcpNumber);
-    </script>
+// 根据URL动态设置ICP备案号
+function setIcpNumber() {
+    const currentUrl = window.location.href;
+    const icpElement = document.getElementById('icp-number');
+    
+    if (!icpElement) return;
+    
+    if (currentUrl.includes('zhijianai.cn')) {
+        icpElement.textContent = '粤ICP备2025413128号-1';
+    } else if (currentUrl.includes('zhiyan.chat')) {
+        icpElement.textContent = '粤ICP备2025413128号-2';
+    } else if (currentUrl.includes('zhijianai.cc')) {
+        icpElement.textContent = '粤ICP备2025413128号-3';
+    } else if (currentUrl.includes('aigrowth8.com')) {
+        icpElement.textContent = '粤ICP备2025413128号-4';
+    } else if (currentUrl.includes('aigrowth8.cn')) {
+        icpElement.textContent = '粤ICP备2025413128号-5';
+    } else if (currentUrl.includes('tydbuddy.com')) {
+        icpElement.textContent = '粤ICP备2025413128号-6';
+    } else if (currentUrl.includes('tydclaw.com')) {
+        icpElement.textContent = '粤ICP备2025413128号-7';
+    } else if (currentUrl.includes('tydclaw.cn')) {
+        icpElement.textContent = '粤ICP备2025413128号-8';
+    }
+}
+
+// 页面加载时执行
+document.addEventListener('DOMContentLoaded', () => {
+    setIcpNumber();
+    
+    // 动态获取并展示当前年份
+    const copyrightYear = document.getElementById('copyright-year');
+    if (copyrightYear) {
+        copyrightYear.textContent = new Date().getFullYear();
+    }
+});
+</script>
+
 </body>
 </html>
-    
